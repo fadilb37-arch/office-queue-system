@@ -46,7 +46,7 @@ export default function AdminDashboard() {
       const performance: any = {}
 
       logs.forEach(log => {
-        const name = log.counters.counter_name
+        const name = log.counters?.[0]?.counter_name || 'Unknown'
         performance[name] = (performance[name] || 0) + 1
       })
 

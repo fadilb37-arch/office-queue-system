@@ -54,7 +54,7 @@ export default function StaffPage() {
       .limit(1)
       .single()
 
-    if (currentServing?.tickets?.status === 'serving') {
+    if (currentServing?.tickets?.[0]?.status === 'serving') {
       await supabase
         .from('tickets')
         .update({ status: 'completed' })
