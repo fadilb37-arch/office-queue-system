@@ -35,7 +35,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex gap-6 text-gray-700 font-medium">
+          <div className="hidden lg:flex gap-6 text-gray-900 font-medium">
             <span>Matches</span>
             <span>Table</span>
             <span>Statistics</span>
@@ -44,7 +44,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <button className="border rounded-full px-5 py-2 text-sm font-medium hover:bg-gray-100">
+        <button className="border rounded-full px-5 py-2 text-sm font-medium hover:bg-gray-900">
           Sign in
         </button>
       </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="p-6 space-y-4 font-medium text-gray-700">
+        <div className="p-6 space-y-4 font-medium text-gray-900">
           <div>Matches</div>
           <div>Table</div>
           <div>Statistics</div>
