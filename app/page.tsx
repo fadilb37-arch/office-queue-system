@@ -3,6 +3,11 @@
 import { supabase } from '@/lib/supabase'
 import { useState } from 'react'
 
+import Navbar from "./components/navbar"
+import Hero from "./components/hero"
+import NewsList from "./components/newslist"
+import Fixtures from "./components/fixtures"
+
 export default function Home() {
   const [ticketNumber, setTicketNumber] = useState<number | null>(null)
 
@@ -79,79 +84,21 @@ export default function Home() {
 
 
 
-  return (<div className="bg-gradient-to-br from-purple-100 to-indigo-100 min-h-screen flex items-center justify-center p-10">
-      <div className="flex flex-col lg:flex-row gap-10 max-w-6xl w-full">
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <Navbar />
 
-        {/* Personal Plan */}
-        <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col justify-between w-full">
-          <div>
-            <h3 className="text-indigo-600 font-semibold text-lg mb-6">
-              Personal
-            </h3>
+      <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-            <div className="text-5xl font-bold text-gray-900">
-              $29 <span className="text-lg font-normal text-gray-500">/month</span>
-            </div>
-
-            <p className="text-gray-500 mt-6 mb-8 leading-relaxed">
-              The perfect plan if you're just getting started with our product.
-            </p>
-
-            <ul className="space-y-4 text-gray-700">
-              {[
-                "25 products",
-                "Up to 10,000 subscribers",
-                "Audience segmentation",
-                "Advanced analytics",
-                "Email support",
-                "Marketing automations"
-              ].map((feature, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <span className="text-indigo-600">✓</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <button className="mt-10 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition">
-            Get started today
-          </button>
+        {/* Main Hero */}
+        <div className="lg:col-span-2">
+          <Hero />
         </div>
 
-        {/* Team Plan */}
-        <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col justify-between w-full">
-          <div>
-            <h3 className="text-indigo-600 font-semibold text-lg mb-6">
-              Team
-            </h3>
-
-            <div className="text-5xl font-bold text-gray-900">
-              $99 <span className="text-lg font-normal text-gray-500">/month</span>
-            </div>
-
-            <p className="text-gray-500 mt-6 mb-8 leading-relaxed">
-              A plan that scales with your rapidly growing business.
-            </p>
-
-            <ul className="space-y-4 text-gray-700">
-              {[
-                "Priority support",
-                "Single sign-on",
-                "Enterprise integrations",
-                "Custom reporting tools"
-              ].map((feature, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <span className="text-indigo-600">✓</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <button className="mt-10 border-2 border-indigo-200 text-indigo-600 py-4 rounded-xl font-semibold hover:bg-indigo-50 transition">
-            Get started today
-          </button>
+        {/* Sidebars */}
+        <div className="space-y-8">
+          <NewsList />
+          <Fixtures />
         </div>
 
       </div>
