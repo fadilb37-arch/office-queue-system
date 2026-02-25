@@ -79,29 +79,82 @@ export default function Home() {
 
 
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6">
-      <h1 className="text-3xl font-bold">Ticket Queue System</h1>
+  return (<div className="bg-gradient-to-br from-purple-100 to-indigo-100 min-h-screen flex items-center justify-center p-10">
+      <div className="flex flex-col lg:flex-row gap-10 max-w-6xl w-full">
 
-      <button
-        onClick={createTicket}
-        className="bg-blue-600 text-white px-6 py-3 rounded"
-      >
-        Get Ticket
-      </button>
+        {/* Personal Plan */}
+        <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col justify-between w-full">
+          <div>
+            <h3 className="text-indigo-600 font-semibold text-lg mb-6">
+              Personal
+            </h3>
 
-      <button
-        onClick={callNext}
-        className="bg-green-600 text-white px-6 py-3 rounded"
-      >
-        Call Next
-      </button>
+            <div className="text-5xl font-bold text-gray-900">
+              $29 <span className="text-lg font-normal text-gray-500">/month</span>
+            </div>
 
-      {ticketNumber && (
-        <div className="text-xl font-semibold">
-          Your Ticket Number: {ticketNumber}
+            <p className="text-gray-500 mt-6 mb-8 leading-relaxed">
+              The perfect plan if you're just getting started with our product.
+            </p>
+
+            <ul className="space-y-4 text-gray-700">
+              {[
+                "25 products",
+                "Up to 10,000 subscribers",
+                "Audience segmentation",
+                "Advanced analytics",
+                "Email support",
+                "Marketing automations"
+              ].map((feature, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <span className="text-indigo-600">✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button className="mt-10 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition">
+            Get started today
+          </button>
         </div>
-      )}
-    </main>
+
+        {/* Team Plan */}
+        <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col justify-between w-full">
+          <div>
+            <h3 className="text-indigo-600 font-semibold text-lg mb-6">
+              Team
+            </h3>
+
+            <div className="text-5xl font-bold text-gray-900">
+              $99 <span className="text-lg font-normal text-gray-500">/month</span>
+            </div>
+
+            <p className="text-gray-500 mt-6 mb-8 leading-relaxed">
+              A plan that scales with your rapidly growing business.
+            </p>
+
+            <ul className="space-y-4 text-gray-700">
+              {[
+                "Priority support",
+                "Single sign-on",
+                "Enterprise integrations",
+                "Custom reporting tools"
+              ].map((feature, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <span className="text-indigo-600">✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button className="mt-10 border-2 border-indigo-200 text-indigo-600 py-4 rounded-xl font-semibold hover:bg-indigo-50 transition">
+            Get started today
+          </button>
+        </div>
+
+      </div>
+    </div>
   )
 }
