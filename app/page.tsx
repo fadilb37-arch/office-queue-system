@@ -3,7 +3,7 @@
 import { supabase } from '@/lib/supabase'
 import { useState } from 'react'
 
-import { Button, Container, Typography } from '@mui/material'
+import { Box, Container, Grid, Button, Typography } from '@mui/material'
 import Navbar from "./components/navbar"
 import Hero from "./components/hero"
 import NewsList from "./components/newslist"
@@ -86,23 +86,23 @@ export default function Home() {
 
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <Navbar />
+  <Box sx={{ backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+    <Navbar />
 
-      <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-        {/* Main Hero */}
-        <div className="lg:col-span-2">
+    <Container sx={{ py: 6 }}>
+        <Grid container spacing={4}>
+        <Grid size={{ xs: 12, lg: 8 }}>
           <Hero />
-        </div>
+        </Grid>
 
-        {/* Sidebars */}
-        <div className="space-y-8">
-          <NewsList />
-          <Fixtures />
-        </div>
-
-      </div>
-    </div>
+        <Grid size={{ xs: 12, lg: 4 }}>
+          <Box display="flex" flexDirection="column" gap={4}>
+            <NewsList />
+            <Fixtures />
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
+  </Box>
   )
 }

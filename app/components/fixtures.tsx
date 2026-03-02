@@ -1,3 +1,7 @@
+'use client'
+
+import { Card, CardContent, Typography, Divider, Stack } from '@mui/material'
+
 const fixtures = [
   "Wolves vs Aston Villa - 00:00",
   "Bournemouth vs Sunderland - 16:30",
@@ -9,19 +13,21 @@ const fixtures = [
 
 export default function Fixtures() {
   return (
-    <div className="bg-white rounded-2xl shadow p-6">
-      <h2 className="font-bold text-lg mb-6">Premier League</h2>
+    <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
+      <CardContent>
+        <Typography variant="h6" fontWeight="bold" gutterBottom>
+          Premier League
+        </Typography>
 
-      <div className="space-y-4 text-sm">
-        {fixtures.map((match, index) => (
-          <div
-            key={index}
-            className="border-b pb-3 last:border-none"
-          >
-            {match}
-          </div>
-        ))}
-      </div>
-    </div>
+        <Stack spacing={2}>
+          {fixtures.map((match, index) => (
+            <div key={index}>
+              <Typography variant="body2">{match}</Typography>
+              {index !== fixtures.length - 1 && <Divider sx={{ mt: 1 }} />}
+            </div>
+          ))}
+        </Stack>
+      </CardContent>
+    </Card>
   )
 }
