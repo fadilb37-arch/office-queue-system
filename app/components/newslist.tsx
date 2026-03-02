@@ -1,3 +1,7 @@
+'use client'
+
+import { Card, CardContent, Typography, Stack, Box } from '@mui/material'
+
 const news = [
   "Predict the final top six",
   "Alan Shearer's Team of the Week",
@@ -8,20 +12,39 @@ const news = [
 
 export default function NewsList() {
   return (
-    <div className="bg-white rounded-2xl shadow p-6">
-      <h2 className="font-bold text-lg mb-6">Latest News</h2>
+    <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
+      <CardContent>
+        <Typography variant="h6" fontWeight="bold" gutterBottom>
+          Latest News
+        </Typography>
 
-      <div className="space-y-5">
-        {news.map((item, index) => (
-          <div
-            key={index}
-            className="flex gap-4 items-center hover:bg-gray-50 p-2 rounded-lg cursor-pointer"
-          >
-            <div className="w-16 h-16 bg-gray-200 rounded-lg"></div>
-            <div className="text-sm font-medium">{item}</div>
-          </div>
-        ))}
-      </div>
-    </div>
+        <Stack spacing={2}>
+          {news.map((item, index) => (
+            <Box
+              key={index}
+              display="flex"
+              gap={2}
+              alignItems="center"
+              sx={{
+                p: 1,
+                borderRadius: 2,
+                cursor: 'pointer'
+              }}
+            >
+              <Box
+                sx={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: 2
+                }}
+              />
+                <Typography variant="body2" fontWeight="medium">
+                  {item}
+                </Typography>
+              </Box>
+          ))}
+        </Stack>
+      </CardContent>
+    </Card>
   )
 }
