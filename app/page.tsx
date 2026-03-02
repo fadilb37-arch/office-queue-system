@@ -3,6 +3,7 @@
 import { supabase } from '@/lib/supabase'
 import { useState } from 'react'
 
+import { Button, Container, Typography } from '@mui/material'
 import Navbar from "./components/navbar"
 import Hero from "./components/hero"
 import NewsList from "./components/newslist"
